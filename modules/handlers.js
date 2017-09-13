@@ -29,7 +29,7 @@ exports.buscaContacto = (sender, values) => {
 }
 
 exports.validaNombre = (sender, values) => {
-	nombre = contacto.firstname + ' ' + contacto.lastname;
+	var nombre = contacto.firstname + ' ' + contacto.lastname;
 	if(nombre == values[0]){
 		messenger.send({text : `Muy bien! Por último, proporcióname tu token (multipass)`}, sender);
 	} 
