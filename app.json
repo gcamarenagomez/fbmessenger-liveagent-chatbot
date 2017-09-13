@@ -1,0 +1,31 @@
+{
+  "name": "BCI Salesforce Bot for Messenger",
+  "description": "BCI Salesforce Bot for Messenger",
+  "env": {
+    "FB_PAGE_TOKEN": {
+        "description": "Facebook Messenger Access Token",
+        "value":"",
+        "required":false
+    },
+    "FB_VERIFY_TOKEN": {
+        "description": "Facebook Verify Token",
+        "value":""
+    },
+    "SF_CLIENT_ID": {
+        "description": "Consumer Key of your Salesforce Connected App",
+        "value":"3MVG9g9rbsTkKnAXrtKvJJXtmvvIzdCcZMJ5h5QM6ALs5lsNXZ_W50Y_LgObQCAyb3Gr_0Y6_iwAIr1o6wosy"
+    },
+    "SF_CLIENT_SECRET": {
+        "description": "Consumer Secret of your Salesforce Connected App",
+        "value":"786994830915959054"
+    },
+    "SF_USER_NAME": {
+        "description": "Salesforce username for your integration user",
+        "value":"gcamarenagomez@bci.demo"
+    },
+    "SF_PASSWORD": {
+        "description": "Salesforce password for your integration user",
+        "value":"Salesforce17"
+    }
+  }
+}

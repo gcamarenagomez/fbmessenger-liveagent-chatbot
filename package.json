@@ -1,0 +1,24 @@
+{
+  "name": "bci-bot",
+  "version": "1.0.0",
+  "description": "bci bot for facebook messenger",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bci",
+    "demo",
+    "bot",
+    "facebook",
+    "messenger"
+  ],
+  "author": "Gabriel Camarena Gomez",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser" : "^1.15.0",
+    "express" : "^4.13.4",
+    "nforce" : "^1.4.1",
+    "request" : "^2.71.0"
+  }
+}
