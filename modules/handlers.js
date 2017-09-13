@@ -5,6 +5,7 @@ let salesforce = require('./salesforce'),
 	formatter = require('./formatter');
 
 var rut;
+var contacto;
 
 exports.hola = (sender) => {
 	messenger.getUserInfo(sender).then(response => {
@@ -21,7 +22,8 @@ exports.buscaContacto = (sender, values) => {
 	rut = values[0];
 	messenger.send({text : `Gracias! Estoy validando tu RUT en nuestro sistema...`}, sender);
 	salesforce.findContact(values[0]).then(contact => {
-		console.log('Variable global RUT: ' + rut);
+		contacto = contact;
+		console.log('Variable global contacto: %j', contacto);
 		messenger.send({text : `Listo! Por favor indícame tu nombre completo.`}, sender);
 	})
 }
