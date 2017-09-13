@@ -10,7 +10,7 @@ let sendMessage = (message, recipient) => {
 		qs : {access_token : process.env.FB_PAGE_TOKEN},
 		method : 'POST',
 		json : {
-			recipient : {id : recipient},
+			recipient : {id : recipient.id},
 			message : message
 		}
 	}, (error, response) => {
@@ -35,7 +35,7 @@ Razon de Rechazo de mi pago`}, sender);
 
 	match = text.match(/hola/i);
 	if(match){
-		sendMessage({text: `Hola! "${sender}"`}, sender);
+		sendMessage({text: `Hola! ${sender.name}`}, sender);
 		return;
 	}
 };
@@ -51,7 +51,7 @@ let handlePost = (req, res) => {
 	let events = req.body.entry[0].messaging;
 	for(let i = 0; i<events.length; i++){
 		let event = events[i];
-		let sender = event.sender.id;
+		let sender = event.sender;
 		if(process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)){
 			sendMessage({text : `Disculpe, no estoy disponible en estos momentos.`}, sender);
 		}
