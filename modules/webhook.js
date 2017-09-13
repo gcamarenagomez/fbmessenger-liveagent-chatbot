@@ -41,7 +41,7 @@ Razon de Rechazo de mi pago`}, sender);
 
 	match = text.match(/123456785/i);
 	if(match){
-		sendMessage({text: `Gracias, tu rut es: "${match[1]}"`}, sender)
+		sendMessage({text: `Gracias, tu rut es: "${match[0]}"`}, sender)
 	}
 };
 
