@@ -33,7 +33,8 @@ let findContact = (rut) => {
 		where = "WHERE RUT__c = " + rut;
 	}
 	return new Promise((resolve, reject) => {
-		let q = `SELECT Id, FirstName, LastName, RUT__c, AccountId FROM Contact ${where} LIMIT 1`;
+		let q = `SELECT Id, FirstName, LastName, RUT__c, AccountId FROM Contact '${where}' LIMIT 1`;
+		console.log('Query: ' + q);
 		org.query({query : q}, (err, resp) => {
 			if(err){
 				console.log('Error: ' + err);
