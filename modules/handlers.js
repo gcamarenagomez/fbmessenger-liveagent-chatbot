@@ -15,5 +15,8 @@ exports.ayuda = (sender) => {
 };
 
 exports.buscaContacto = (sender, values) => {
-	messenger.send({text : `Gracias, comienzo la búsqueda de cuentas para el RUT ${values[0]}`}, sender);
+	messenger.send({text : `Gracias! Estoy validando tu RUT en nuestro sistema...`}, sender);
+	salesforce.findContact(values[0]).then(contact => {
+		messenger.send({text : `Listo! Por favor indícame tu nombre completo.`});
+	})
 }

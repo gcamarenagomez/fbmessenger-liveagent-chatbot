@@ -26,6 +26,26 @@ let login = () => {
 	});
 };
 
+let findContact = (rut) => {
+	let where = "";
+	if(rut){
+		where = "WHERE RUT__c = " + rut;
+	}
+	return new Promise((resolve, reject) => {
+		let q = `SELECT Id, FirstName, LastName, RUT__c, AccountId FROM Contact ${where} LIMIT 1`;
+		org.query({query : q}, (err, resp) => {
+			if(err){
+				reject("Ocurrió un error");
+			}
+			else{
+				console.log('Records: %j', resp.records);
+				resolve(resp.records);
+			}
+		});
+	});
+};
+
 login();
 
 exports.org = org;
+exports.findContact = findContact;
