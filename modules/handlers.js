@@ -18,6 +18,6 @@ exports.buscaContacto = (sender, values) => {
 	console.log('Valor recibido: ' + values[0]);
 	messenger.send({text : `Gracias! Estoy validando tu RUT en nuestro sistema...`}, sender);
 	salesforce.findContact(values[0]).then(contact => {
-		messenger.send({text : `Listo! Por favor indícame tu nombre completo.`});
+		messenger.send({text : `Listo! Por favor indícame tu nombre completo.`}, sender);
 	})
 }
