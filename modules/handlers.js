@@ -29,11 +29,14 @@ exports.buscaContacto = (sender, values) => {
 }
 
 exports.validaNombre = (sender, values) => {
-	var nombre = contacto.firstname + ' ' + contacto.lastname;
-	if(nombre == values[0]){
-		messenger.send({text : `Muy bien! Por último, proporcióname tu token (multipass)`}, sender);
-	} 
-	else{
-		messenger.send({text : `Lo lamento, el nombre que me indicas no coincide con nuestros registros. Por favor intenta nuevamente`}, sender);
+	console.log('Contacto valida Nombre: %j', contacto);
+	if(contacto){
+		var nombre = contacto.firstname + ' ' + contacto.lastname;
+		if(nombre == values[0]){
+			messenger.send({text : `Muy bien! Por último, proporcióname tu token (multipass)`}, sender);
+		} 
+		else{
+			messenger.send({text : `Lo lamento, el nombre que me indicas no coincide con nuestros registros. Por favor intenta nuevamente`}, sender);
+		}
 	}
 }
