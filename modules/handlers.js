@@ -27,3 +27,13 @@ exports.buscaContacto = (sender, values) => {
 		messenger.send({text : `Listo! Por favor indícame tu nombre completo.`}, sender);
 	})
 }
+
+exports.validaNombre = (sender, values) => {
+	nombre = contacto.firstname + ' ' + contacto.lastname;
+	if(nombre == values[0]){
+		messenger.send({text : `Muy bien! Por último, proporcióname tu token (multipass)`}, sender);
+	} 
+	else{
+		messenger.send({text : `Lo lamento, el nombre que me indicas no coincide con nuestros registros. Por favor intenta nuevamente`}, sender);
+	}
+}
