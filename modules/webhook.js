@@ -27,10 +27,15 @@ let processText = (text, sender) => {
 	let match;
 	match = text.match(/ayuda/i);
 	if(match){
-		sendMessage({text: `Puedes preguntarme cosas como: 
-			Consulta mis cuentas
-			Consulta el saldo de mi cuenta corriente
-			Razon de Rechazo de mi pago`}, sender);
+		sendMessage({text: `Puedes preguntarme cosas como: Consulta mis cuentas
+Consulta el saldo de mi cuenta corriente
+Razon de Rechazo de mi pago`}, sender);
+		return;
+	}
+
+	match = text.match(/hola/i);
+	if(match){
+		sendMessage({text: `Hola!`}, sender);
 		return;
 	}
 };
