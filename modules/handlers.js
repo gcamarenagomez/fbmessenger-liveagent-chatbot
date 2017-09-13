@@ -13,3 +13,7 @@ exports.hola = (sender) => {
 exports.ayuda = (sender) => {
 	messenger.send({text : `Puedes preguntarme cosas como "Consulta de Cuentas", "Consulta de Saldos", "Transacción Rechazada"`}, sender);
 };
+
+exports.buscaContacto = (sender, values) => {
+	messenger.send({text : `Gracias, comienzo la búsqueda de cuentas para el RUT ${values[0]}`}, sender);
+}
