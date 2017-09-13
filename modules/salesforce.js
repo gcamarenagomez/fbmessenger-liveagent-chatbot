@@ -27,6 +27,7 @@ let login = () => {
 };
 
 let findContact = (rut) => {
+	console.log('RUT: ' + rut);
 	let where = "";
 	if(rut){
 		where = "WHERE RUT__c = " + rut;
@@ -35,6 +36,7 @@ let findContact = (rut) => {
 		let q = `SELECT Id, FirstName, LastName, RUT__c, AccountId FROM Contact ${where} LIMIT 1`;
 		org.query({query : q}, (err, resp) => {
 			if(err){
+				console.log('Error: ' + err);
 				reject("Ocurrió un error");
 			}
 			else{
