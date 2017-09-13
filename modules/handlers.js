@@ -22,7 +22,7 @@ exports.buscaContacto = (sender, values) => {
 	rut = values[0];
 	messenger.send({text : `Gracias! Estoy validando tu RUT en nuestro sistema...`}, sender);
 	salesforce.findContact(values[0]).then(contact => {
-		contacto = contact;
+		contacto = contact[0];
 		console.log('Variable global contacto: %j', contacto);
 		messenger.send({text : `Listo! Por favor indícame tu nombre completo.`}, sender);
 	})
@@ -31,7 +31,7 @@ exports.buscaContacto = (sender, values) => {
 exports.validaNombre = (sender, values) => {
 	console.log('Contacto valida Nombre: %j', contacto);
 	if(contacto){
-		var nombre = contacto[0].firstname + ' ' + contacto[0].lastname;
+		var nombre = contacto.firstname + ' ' + contacto.lastname;
 		console.log('Nombre contacto: ' + nombre);
 		if(nombre == values[0]){
 			messenger.send({text : `Muy bien! Por último, proporcióname tu token (multipass)`}, sender);
