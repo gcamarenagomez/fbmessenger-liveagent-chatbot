@@ -35,7 +35,7 @@ Razon de Rechazo de mi pago`}, sender);
 
 	match = text.match(/hola/i);
 	if(match){
-		sendMessage({text: `Hola! ${sender.name}`}, sender);
+		sendMessage({text: `Hola! ${sender}`}, sender);
 		return;
 	}
 };
