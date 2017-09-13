@@ -31,7 +31,7 @@ exports.buscaContacto = (sender, values) => {
 exports.validaNombre = (sender, values) => {
 	console.log('Contacto valida Nombre: %j', contacto);
 	if(contacto){
-		var nombre = contacto.firstname + ' ' + contacto.lastname;
+		var nombre = contacto.get('firstname') + ' ' + contacto.get('lastname');
 		console.log('Nombre contacto: ' + nombre);
 		if(nombre == values[0]){
 			messenger.send({text : `Muy bien! Por último, proporcióname tu token (multipass)`}, sender);
