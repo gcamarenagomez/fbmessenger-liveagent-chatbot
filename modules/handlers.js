@@ -26,7 +26,7 @@ exports.buscaContacto = (sender, values) => {
 		console.log('Variable global contacto: %j', contacto);
 		messenger.send({text : `Listo! Por favor indícame tu nombre completo.`}, sender);
 	})
-}
+};
 
 exports.validaNombre = (sender, values) => {
 	console.log('Contacto valida Nombre: %j', contacto);
@@ -40,4 +40,12 @@ exports.validaNombre = (sender, values) => {
 			messenger.send({text : `Lo lamento, el nombre que me indicas no coincide con nuestros registros. Por favor intenta nuevamente`}, sender);
 		}
 	}
-}
+};
+
+exports.buscaCuentas = (sender) => {
+	if(contacto){
+		salesforce.findFinancialAccounts(contacto.get("accountid")).then(finAccounts => {
+			messenger.send(formatter.formatAccounts(finAccounts), sender);
+		});
+	}	
+};

@@ -48,7 +48,30 @@ let findContact = (rut) => {
 	});
 };
 
+let findFinancialAccounts = (accountId) => {
+	console.log('Account Id' + accountId);
+	let where = "";
+	if(accountId){
+		where = "WHERE FinServ__PrimaryOwner__c = '" + accountId + "'";
+	}
+	return new Promise((resolve, reject) => {
+		let q = `SELECT Id, Name, FinServ__FinancialAccountNumber__c, FinServ__Balance__c, FinServ__OpenDate__c FROM FinServ__FinancialAccount__c ${where}`;
+		console.log('Query: ' + q);
+		org.query({query : q}, (err, resp) => {
+			if(err){
+				console.log('Error: ' + err);
+				reject("Ocurrió un error");
+			}
+			else{
+				console.log('Records: %j', resp.records);
+				resolve(resp.records);
+			}
+		});
+	});
+};
+
 login();
 
 exports.org = org;
 exports.findContact = findContact;
+exports.findFinancialAccounts = findFinancialAccounts;
