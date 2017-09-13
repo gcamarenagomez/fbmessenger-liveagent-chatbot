@@ -10,7 +10,7 @@ let sendMessage = (message, recipient) => {
 		qs : {access_token : process.env.FB_PAGE_TOKEN},
 		method : 'POST',
 		json : {
-			recipient : {id : recipient.id},
+			recipient : {id : recipient},
 			message : message
 		}
 	}, (error, response) => {
@@ -35,8 +35,13 @@ Razon de Rechazo de mi pago`}, sender);
 
 	match = text.match(/hola/i);
 	if(match){
-		sendMessage({text: `Hola! Por favor proporcióname tu RUT`}, sender);
+		sendMessage({text: `Hola! Por favor proporcióname tu RUT sin puntos ni guiones`}, sender);
 		return;
+	}
+
+	match = text.match(/123456785/i);
+	if(match){
+		sendMessage({text: `Gracias, tu rut es: "${match[1]}"`}, sender)
 	}
 };
 
@@ -51,7 +56,7 @@ let handlePost = (req, res) => {
 	let events = req.body.entry[0].messaging;
 	for(let i = 0; i<events.length; i++){
 		let event = events[i];
-		let sender = event.sender;
+		let sender = event.sender.id;
 		if(process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)){
 			sendMessage({text : `Disculpe, no estoy disponible en estos momentos.`}, sender);
 		}
