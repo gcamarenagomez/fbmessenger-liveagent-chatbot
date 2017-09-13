@@ -9,6 +9,7 @@ exports.formatAccounts = finAccounts => {
 		elements.push({
 			title: acct.get('name'),
 			subtitle: `${acct.get("FinServ__FinancialAccountNumber__c")} · ${numeral(acct.get("FinServ__Balance__c")).format('$0.0')}`,
+			"image_url" : acct.get("ImageUrl__c"),
 			"buttons" : [
 				{
                     "type": "postback",
@@ -22,7 +23,7 @@ exports.formatAccounts = finAccounts => {
                 },
                 {
                     "type": "postback",
-                    "title": "Tranascción rechazada",
+                    "title": "Transacción rechazada",
                     "payload": "contact_me," + acct.getId()
                 }
 			]

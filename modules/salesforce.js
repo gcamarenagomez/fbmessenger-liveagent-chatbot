@@ -55,7 +55,7 @@ let findFinancialAccounts = (accountId) => {
 		where = "WHERE FinServ__PrimaryOwner__c = '" + accountId + "'";
 	}
 	return new Promise((resolve, reject) => {
-		let q = `SELECT Id, Name, FinServ__FinancialAccountNumber__c, FinServ__Balance__c, FinServ__OpenDate__c FROM FinServ__FinancialAccount__c ${where}`;
+		let q = `SELECT Id, Name, FinServ__FinancialAccountNumber__c, FinServ__Balance__c, FinServ__OpenDate__c, ImageURL__c FROM FinServ__FinancialAccount__c ${where}`;
 		console.log('Query: ' + q);
 		org.query({query : q}, (err, resp) => {
 			if(err){
