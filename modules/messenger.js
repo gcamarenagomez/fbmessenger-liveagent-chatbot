@@ -130,7 +130,7 @@ exports.messages = (session, seq) => {
 			else{
 				console.log('Response: %j', response);
 				//console.log('Response Status', response.status);
-				resolve(JSON.parse(response.body));
+				resolve(response);
 			}
 		});
 	});
