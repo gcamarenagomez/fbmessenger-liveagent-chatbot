@@ -106,8 +106,6 @@ exports.chasitorInit = (key, token, id) => {
 				resolve(response.body);
 			}
 		});
-		console.log('Request header %j', request.headers);
-		console.log('Request body %j', request.json);
 	});
 };
 
@@ -138,6 +136,7 @@ exports.messages = (session, seq) => {
 };
 
 exports.sendLAMessage = (session, message) => {
+	console.log("Message : " + message);
 	return new Promise((resolve, reject) => {
 		request({
 			url : "https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/Chasitor/ChatMessage",
