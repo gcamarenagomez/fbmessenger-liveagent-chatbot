@@ -65,25 +65,23 @@ exports.getLiveAgentSession = () => {
 	});
 };
 
-exports.chasitorInit = (session) => {
-	console.log('Chasitor Session %j', session);
-	console.log('Key' + session.get('key'));
+exports.chasitorInit = (key, token, id) => {
+	console.log('Chasitor Key' + key);
 	return new Promise((resolve, reject) => {
-		console.log('Promise Session %j', session);
 		request({
 			url : 'https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/Chasitor/ChasitorInit',
 			method : 'POST',
 			headers : {
 				"X-LIVEAGENT-API-VERSION" : 40,
-				"X-LIVEAGENT-AFFINITY" : session.get('affinityToken'),
-				"X-LIVEAGENT-SESSION-KEY" : session.get('key'),
+				"X-LIVEAGENT-AFFINITY" : token,
+				"X-LIVEAGENT-SESSION-KEY" : key,
 				"X-LIVEAGENT-SEQUENCE" : 0
 			},
 			json : {
 				"organizationId" : "00D1I00000040yk",
 				"deploymentId" : "5721I000000TSX6",
 				"buttonId" : "5731I000000TSTQ",
-				"sessionId" : session.get('id'),
+				"sessionId" : id,
 				"userAgent" : "",
 				"language" : "es-MX",
 				"screenResolution" : "2560x1440",

@@ -7,7 +7,7 @@ let salesforce = require('./salesforce'),
 exports.start_chat = (sender, values) => {
 	messenger.getLiveAgentSession().then(session => {
 		console.log("Session %j", session);
-		messenger.chasitorInit(session).then(chasitor => {
+		messenger.chasitorInit(session.get('key'), session.get('token'), session.get('id')).then(chasitor => {
 			console.log("Chasitor %j", chasitor);
 		})
 	});
