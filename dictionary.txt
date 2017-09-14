@@ -5,4 +5,4 @@ ayuda ayuda
 buscaContacto 123456785
 validaNombre Gabriel Camarena
 buscaCuentas token
-liveAgentMessage LiveAgentMessage
+liveAgentMessage liveAgentMessage

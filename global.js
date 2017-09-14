@@ -1,2 +1,2 @@
 global.globalSession = {};
-global.sequence = '';
+global.globalSequence = '';
