@@ -103,7 +103,7 @@ exports.chasitorInit = (key, token, id) => {
 			}
 			else{
 				console.log('Response: %j', response.body);
-				resolve(JSON.parse(response.body));
+				resolve(response.body);
 			}
 		});
 		console.log('Request header %j', request.headers);
