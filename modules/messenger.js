@@ -67,7 +67,9 @@ exports.getLiveAgentSession = () => {
 
 exports.chasitorInit = (session) => {
 	console.log('Chasitor Session %j', session);
+	console.log('Key' + session.get('key'));
 	return new Promise((resolve, reject) => {
+		console.log('Promise Session %j', session);
 		request({
 			url : 'https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/Chasitor/ChasitorInit',
 			method : 'POST',
