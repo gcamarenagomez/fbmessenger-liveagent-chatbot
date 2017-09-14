@@ -54,6 +54,7 @@ exports.buscaCuentas = (sender) => {
 exports.liveAgentMessage = (sender, values) => {
 	console.log('LA session: %j', globalSession);
 	console.log('LA sequence: ' + globalSequence);
+	console.log('Text: ' + values);
 	//postbacks.message(globalSession, globalSequence+1,sender);
-	messenger.sendLAMessage(globalSession, values[0]);
+	messenger.sendLAMessage(globalSession, values);
 };
