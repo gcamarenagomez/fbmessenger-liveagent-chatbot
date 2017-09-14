@@ -19,6 +19,13 @@ let message = (session, seq, sender) => {
 			messenger.send({text : `Gracias a partir de este momento ${msgs.messages[0].message.name} te atenderá...`}, sender);
 			message(session, seq + 1, sender);
 		}
+		else if(msgs.messages[0].type == 'ChatMessage'){
+			messenger.send({text : `${msgs.messages[0].message.text}`});
+			message(session, seq + 1, sender);
+		}
+		else{
+			message(session, seq +1, sender);
+		}
 		
 	});
 };
