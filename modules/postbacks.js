@@ -54,7 +54,7 @@ exports.start_chat = (sender, values) => {
 				globalSequence = globalSequence + 1;
 				console.log('Global Sequence ' + globalSequence);
 				message(globalSession, globalSequence, sender);
-			}, 10000);
+			}, 1000);
 			//message(session, -1, sender);
 		});
 	});
