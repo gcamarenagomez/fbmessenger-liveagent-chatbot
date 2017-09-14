@@ -56,5 +56,5 @@ exports.liveAgentMessage = (sender, values) => {
 	console.log('LA sequence: ' + globalSequence);
 	console.log('Text: ' + values);
 	//postbacks.message(globalSession, globalSequence+1,sender);
-	messenger.sendLAMessage(globalSession, values);
+	messenger.sendLAMessage(globalSession, values[0]);
 };

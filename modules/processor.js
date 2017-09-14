@@ -29,7 +29,9 @@ let match = text => {
 		console.log('Processor sequence: ' + globalSequence);
 		console.log('Processor text: ' + text);
 		var handler = 'liveAgentMessage';
-		return {handler, text};
+		var match = [];
+		match.push(text);
+		return {handler, match};
 	}
 	for(var i = 0; i<utterances.length; i++){
 		var match = text.match(new RegExp(utterances[i].utterance, 'i'));
