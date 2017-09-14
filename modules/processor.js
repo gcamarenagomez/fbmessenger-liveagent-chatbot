@@ -27,7 +27,7 @@ let match = text => {
 	if(globalSession && globalSession.id){
 		console.log('Processor session %j', globalSession);
 		console.log('Processor sequence: ' + globalSequence);
-		var handler = utterances[utterances.length-1].handler;
+		var handler = 'liveAgentMessage';
 		return {handler, text};
 	}
 	for(var i = 0; i<utterances.length; i++){
