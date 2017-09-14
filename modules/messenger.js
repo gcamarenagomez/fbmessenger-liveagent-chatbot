@@ -87,9 +87,173 @@ exports.chasitorInit = (key, token, id) => {
 				"userAgent" : "",
 				"language" : "es-MX",
 				"screenResolution" : "2560x1440",
-				"visitorName" : "Gabriel",
-				"prechatDetails" : [],
-				"prechatEntities" : [],
+				"visitorName" : "Gabriel C.",
+				"prechatDetails" : [
+					{
+						"label" : "LastName",
+						"value" : "Camarena",
+						"entityMaps" : [
+							{
+								"entityName" : "contact",
+								"fieldName" : "LastName"
+							}
+						],
+						"transcriptFields" : [
+							"LastName__c"
+						],
+						"displayToAgent" : true
+					},
+					{
+						"label" : "FirstName",
+						"value" : "Gabriel",
+						"entityMaps" : [
+							{
+								"entityName" : "contact",
+								"fieldName" : "FirstName"
+							}
+						],
+						"transcriptFields" : [
+							"FirstName__c"
+						],
+						"displayToAgent" : true
+					},
+					{
+						"label" : "Email",
+						"value" : "gcamarenagomez@salesforce.com",
+						"entityMaps" : [
+							{
+								"entityName" : "contact",
+								"fieldName" : "Email"
+							}
+						],
+						"transcriptFields" : [
+							"Email__c"
+						],
+						"displayToAgent" : true
+					},
+					{
+						"label" : "Status",
+						"value" : "New",
+						"entityMaps" : [
+							{
+								"entityName" : "case",
+								"fieldName" : "Status"
+							}
+						],
+						"transcriptFields" : [
+							"caseStatus__c"
+						],
+						"displayToAgent" : true
+					},
+					{
+						"label" : "Origin",
+						"value" : "Web",
+						"entityMaps" : [
+							{
+								"entityName" : "case",
+								"fieldName" : "Origin"
+							}
+						],
+						"transcriptFields" : [
+							"caseOrigin__c"
+						],
+						"displayToAgent" : true
+					},
+					{
+						"label" : "Subject",
+						"value" : "Transacción Rechazada",
+						"entityMaps" : [
+							{
+								"entityName" : "case",
+								"fieldName" : "Subject"
+							}
+						],
+						"transcriptFields" : [
+							"subject__c"
+						],
+						"displayToAgent" : true
+					},
+					{
+						"label" : "Description",
+						"value" : "Transacción Rechazada",
+						"entityMaps" : [
+							{
+								"entityName" : "case",
+								"fieldName" : "Description"
+							}
+						],
+						"transcriptFields" : [
+							"description__c"
+						],
+						"displayToAgent" : true
+					}
+				],
+				"prechatEntities" : [
+					{
+						"entityName" : "Contact",
+						"saveToTranscript" : "contact",
+						"linkToEntityName" : "Case",
+						"linkToEntityField" : "ContactId",
+						"entityFieldsMaps" : [
+							{
+								"fieldName" : "LastName",
+								"label" : "LastName",
+								"doFind" : true,
+								"isExactMatch" : true,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "FirstName",
+								"label" : "FirstName",
+								"doFind" : true,
+								"isExactMatch" : true,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "Email",
+								"label" : "Email",
+								"doFind" : true,
+								"isExactMatch" : true,
+								"doCreate" : true
+							}
+						]
+					},
+					{
+						"entityName" : "Case",
+						"showOnCreate" : true,
+						"saveToTranscript" : "Case",
+						"entityFieldsMaps" : [
+							{
+								"fieldName" : "Status",
+								"label" : "Status",
+								"doFind" : false,
+								"isExactMatch" : false,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "Origin",
+								"label" : "Origin",
+								"doFind" : false,
+								"isExactMatch" : false,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "Subject",
+								"label" : "Subject",
+								"doFind" : false,
+								"isExactMatch" : false,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "Description",
+								"label" : "Description",
+								"doFind" : false,
+								"isExactMatch" : false,
+								"doCreate" : true
+							}
+						]
+					}
+				],
 				"buttonOverrides" : [],
 				"receiveQueueUpdates" : true,
 				"isPost" : true

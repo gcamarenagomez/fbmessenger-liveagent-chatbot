@@ -10,7 +10,7 @@ let message = (session, seq, sender) => {
 	console.log("Message session: %j", session);
 	console.log("Message seq: " + seq);
 	messenger.messages(session, seq).then(response => {
-		if(response.statusCode==200){
+		if(response.statusCode==200 || response.statusCode==204){
 			var msgs = JSON.parse(response.body);
 			globalSequence = msgs.sequence;
 			if(msgs.messages[0].type == 'ChatRequestSuccess'){
