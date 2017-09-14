@@ -7,8 +7,8 @@ let salesforce = require('./salesforce'),
 let message = (session, seq) => {
 	console.log("Message session: %j", session);
 	messenger.messages(session, seq).then(msgs => {
-		console.log('Postback Messages %j', msgs[0]);
-		console.log('Message type ' + msgs[0].type);
+		console.log('Postback Messages %j', msgs.messages);
+		console.log('Message type ' + msgs.messages[0].type);
 		messenger.messages(session, seq+1).then(msg2 => {
 			console.log('Postback Messages 2 %j', msg2);
 		})
