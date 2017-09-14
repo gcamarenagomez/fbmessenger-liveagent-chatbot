@@ -20,7 +20,8 @@ let message = (session, seq, sender) => {
 		else if(msgs.messages[0].type == 'ChatEstablished'){
 			messenger.send({text : `Gracias a partir de este momento ${msgs.messages[0].message.name} te atenderá...`}, sender);
 			//message(session, seq + 1, sender);
-			Repeat(message(session, globalSequence + 1, sender)).every(2,'sec').for(2,'minutes').start.in(1,'sec');
+			setInterval(message(session, globalSequence + 1, sender), 2000);
+			//Repeat(message(session, globalSequence + 1, sender)).every(2,'sec').for(2,'minutes').start.in(1,'sec');
 		}
 		else if(msgs.messages[0].type == 'ChatMessage'){
 			messenger.send({text : `${msgs.messages[0].message.text}`}, sender);
