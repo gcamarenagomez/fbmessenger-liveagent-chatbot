@@ -6,6 +6,9 @@ let salesforce = require('./salesforce'),
 
 let message = (session) => {
 	console.log("Message session: %j", session);
+	messenger.messages(session).then(msgs => {
+		console.log('Postback Messages %j', msgs);
+	});
 };
 
 exports.start_chat = (sender, values) => {

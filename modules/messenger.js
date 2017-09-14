@@ -110,3 +110,28 @@ exports.chasitorInit = (key, token, id) => {
 		console.log('Request body %j', request.json);
 	});
 };
+
+exports.messages = (session) => {
+	return new Promise((resolve, reject) => {
+		request({
+			url : "https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/System/Messages",
+			method : 'GET',
+			headers : {
+				"X-LIVEAGENT-API-VERSION" : 40,
+				"X-LIVEAGENT-AFFINITY" : session.affinityToken,
+				"X-LIVEAGENT-SESSION-KEY" : session.key
+			}
+		}, (error, response){
+			if(error){
+				console.log('Error getting messages: ', error);
+			}
+			else if(response.body.error){
+				console.log('Error: ', response.body.error);
+			}
+			else{
+				console.log('Response: %j', response.body);
+				resolve(JSON.parse(response.body));
+			}
+		});
+	});
+}
