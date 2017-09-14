@@ -128,7 +128,8 @@ exports.messages = (session, seq) => {
 				console.log('Error: ', response.body.error);
 			}
 			else{
-				console.log('Response: %j', response.body);
+				console.log('Response: %j', response);
+				//console.log('Response Status', response.status);
 				resolve(JSON.parse(response.body));
 			}
 		});
