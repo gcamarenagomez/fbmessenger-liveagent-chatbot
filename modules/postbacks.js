@@ -21,7 +21,9 @@ let message = (session, seq, sender) => {
 			messenger.send({text : `Gracias a partir de este momento ${msgs.messages[0].message.name} te atenderá...`}, sender);
 			//message(session, seq + 1, sender);
 			setInterval(function(){
-				message(globalSession, globalSequence + 1, sender);
+				console.log('Sender %j', sender);
+				globalSequence = globalSequence + 1;
+				message(globalSession, globalSequence, sender);
 			}, 2000);
 			//Repeat(message(session, globalSequence + 1, sender)).every(2,'sec').for(2,'minutes').start.in(1,'sec');
 		}
