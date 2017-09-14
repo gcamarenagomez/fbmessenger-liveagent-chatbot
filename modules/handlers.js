@@ -2,7 +2,8 @@
 
 let salesforce = require('./salesforce'), 
 	messenger = require('./messenger'),
-	formatter = require('./formatter');
+	formatter = require('./formatter'),
+	postbacks = require('./postbacks');
 
 var rut;
 var contacto;
@@ -53,4 +54,6 @@ exports.buscaCuentas = (sender) => {
 exports.liveAgentMessage = (sender, values) => {
 	console.log('LA session: %j', globalSession);
 	console.log('LA sequence: ' + globalSequence);
-}
+	postbacks.message(globalSession, globalSequence+1,sender);
+	messenger.sendLAMessage(globalSession, values[0]);
+};

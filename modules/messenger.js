@@ -135,4 +135,32 @@ exports.messages = (session, seq) => {
 			}
 		});
 	});
-}
+};
+
+exports.sendLAMessage = (session, message) => {
+	return new Promise((resolve, reject) => {
+		request({
+			url : "https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/Chasitor/ChatMessage",
+			method : 'POST',
+			headers : {
+				"X-LIVEAGENT-API-VERSION" : 40,
+				"X-LIVEAGENT-AFFINITY" : session.affinityToken,
+				"X-LIVEAGENT-SESSION-KEY" : session.key
+			},
+			json : {
+				"text" : message
+			}
+		}, (error, response) => {
+			if(error){
+				console.log('Error posting message: ', error);
+			}
+			else if(response.body.error){
+				console.log('Error: ', response.body.error);
+			}
+			else{
+				console.log('Response: %j', response.body);
+				resolve(response.body);
+			}
+		});
+	});
+};
