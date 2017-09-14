@@ -158,6 +158,7 @@ exports.sendLAMessage = (session, message) => {
 			}
 			else{
 				console.log('Response: %j', response.body);
+				globalSequence = globalSequence + 1; 
 				resolve(response.body);
 			}
 		});

@@ -34,7 +34,7 @@ let message = (session, seq, sender) => {
 			//globalSequence = globalSequence + 1
 		}
 		else if(msgs.messages[0].type == 'AgentTyping'){
-			messenger.send({text : ``},sender);
+
 		}
 		/*else{
 			message(session, seq +1, sender);
