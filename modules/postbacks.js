@@ -12,7 +12,7 @@ let message = (session, seq, sender) => {
 	messenger.messages(session, seq).then(msgs => {
 		console.log('Postback Messages %j', msgs.messages);
 		console.log('Message type ' + msgs.messages[0].type);
-		globalSequence = msgs.sequence;
+		//globalSequence = msgs.sequence;
 		if(msgs.messages[0].type == 'ChatRequestSuccess'){
 			//message(session, seq + 1, sender);
 			/*messenger.messages(session, seq+1).then(msg2 =>{
