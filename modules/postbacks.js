@@ -11,6 +11,7 @@ exports.start_chat = (sender, values) => {
 		console.log("key: " + key);
 		messenger.chasitorInit(session.key, session.affinityToken, session.id).then(chasitor => {
 			console.log("Chasitor %j", chasitor);
-		})
+			console.log("Chasitor Session %j", session);
+		});
 	});
 }
