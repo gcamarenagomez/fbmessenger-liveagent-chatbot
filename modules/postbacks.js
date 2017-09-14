@@ -8,7 +8,7 @@ let salesforce = require('./salesforce'),
 
 let message = (session, seq, sender) => {
 	console.log("Message session: %j", session);
-	console.log("Message seq: " + sequence);
+	console.log("Message seq: " + seq);
 	messenger.messages(session, seq).then(msgs => {
 		console.log('Postback Messages %j', msgs.messages);
 		console.log('Message type ' + msgs.messages[0].type);
@@ -25,7 +25,7 @@ let message = (session, seq, sender) => {
 				console.log('Sender %j', sender);
 				globalSequence = globalSequence + 1;
 				message(globalSession, globalSequence, sender);
-			}, 2000);
+			}, 10000);
 			//Repeat(message(session, globalSequence + 1, sender)).every(2,'sec').for(2,'minutes').start.in(1,'sec');
 		}
 		else if(msgs.messages[0].type == 'ChatMessage'){
