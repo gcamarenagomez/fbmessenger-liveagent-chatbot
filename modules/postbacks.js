@@ -13,25 +13,24 @@ let message = (session, seq, sender) => {
 		console.log('Postback Messages %j', msgs.messages);
 		console.log('Message type ' + msgs.messages[0].type);
 		if(msgs.messages[0].type == 'ChatRequestSuccess'){
-			message(session, seq + 1, sender);
+			//message(session, seq + 1, sender);
 			/*messenger.messages(session, seq+1).then(msg2 =>{
 				console.log('Postback Messages 2 %j', msg2.messages);
 			});*/
+			console.log('Chat Request Success');
 		}
 		else if(msgs.messages[0].type == 'ChatEstablished'){
+			console.log('Chat Established');
 			messenger.send({text : `Gracias a partir de este momento ${msgs.messages[0].message.name} te atenderá...`}, sender);
-			message(session, seq + 1, sender);			
+			/*message(session, seq + 1, sender);
+			globalSequence = globalSequence + 1;*/
+			
+
 		}
 		else if(msgs.messages[0].type == 'ChatMessage'){
+			console.log('Chat Message');
 			messenger.send({text : `${msgs.messages[0].message.text}`}, sender);
-			message(session, seq + 1, sender);
-			globalSequence = seq + 1;
-			setInterval(function(){
-				globalSequence = globalSequence + 1;
-				console.log('Global Sequence ' + globalSequence);
-				message(globalSession, globalSequence, sender);
-			}, 30000);
-			
+			//globalSequence = globalSequence + 1
 		}
 		/*else{
 			message(session, seq +1, sender);
@@ -50,7 +49,13 @@ exports.start_chat = (sender, values) => {
 			console.log("Chasitor %j", chasitor);
 			console.log("Chasitor Session %j", session);
 			globalSession = session;
-			message(session, -1, sender);
+			globalSequence = -2;
+			setInterval(function(){
+				globalSequence = globalSequence + 1;
+				console.log('Global Sequence ' + globalSequence);
+				message(globalSession, globalSequence, sender);
+			}, 10000);
+			//message(session, -1, sender);
 		});
 	});
 };
