@@ -10,7 +10,7 @@ let message = (session, seq) => {
 		console.log('Postback Messages %j', msgs.messages);
 		console.log('Message type ' + msgs.messages[0].type);
 		if(msgs.messages[0].type == 'ChatRequestSuccess'){
-			messenger.messages(session.seq+1).then(msg2 =>{
+			messenger.messages(session, seq+1).then(msg2 =>{
 				console.log('Postback Messages 2 %j', msg2.messages);
 			});
 		}
