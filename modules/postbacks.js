@@ -4,6 +4,10 @@ let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter');
 
+let message = (session) => {
+	console.log("Message session: %j", session);
+};
+
 exports.start_chat = (sender, values) => {
 	messenger.getLiveAgentSession().then(session => {
 		console.log("Session %j", session);
@@ -17,6 +21,5 @@ exports.start_chat = (sender, values) => {
 	});
 };
 
-exports.message = (session) => {
-	console.log("Message session: %j", session);
-}
+exports.message = message;
+	
