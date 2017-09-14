@@ -40,3 +40,26 @@ exports.getUserInfo = (userId) => {
 		});
 	});
 };
+
+exports.getLiveAgentSession = () => {
+	return new Promise((resolve, reject) => {
+		request({
+			url : 'https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/System/SessionId',
+			method : 'GET',
+			headers : {
+				"X-LIVEAGENT-API-VERSION" : 40
+			}
+		}, (error, response) => {
+			if(error){
+				console.log('Error getting session id: ', error);
+			}
+			else if(response.body.error){
+				console.log('Error: ', response.body.error);
+			}
+			else{
+				console.log('Response: %j', response.body);
+				resolve(JSON.parse(response.body));
+			}
+		});
+	});
+};

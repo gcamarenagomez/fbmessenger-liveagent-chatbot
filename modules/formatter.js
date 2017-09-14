@@ -24,7 +24,7 @@ exports.formatAccounts = finAccounts => {
                 {
                     "type": "postback",
                     "title": "Transacción rechazada",
-                    "payload": "contact_me," + acct.getId()
+                    "payload": "start_chat," + acct.getId()
                 }
 			]
 		})
