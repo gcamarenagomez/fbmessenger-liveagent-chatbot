@@ -12,6 +12,7 @@ let message = (session, seq, sender) => {
 	messenger.messages(session, seq).then(msgs => {
 		console.log('Postback Messages %j', msgs.messages);
 		console.log('Message type ' + msgs.messages[0].type);
+		globalSequence = msgs.sequence;
 		if(msgs.messages[0].type == 'ChatRequestSuccess'){
 			//message(session, seq + 1, sender);
 			/*messenger.messages(session, seq+1).then(msg2 =>{
@@ -32,6 +33,9 @@ let message = (session, seq, sender) => {
 			messenger.send({text : `${msgs.messages[0].message.text}`}, sender);
 			//globalSequence = globalSequence + 1
 		}
+		else if(msgs.messages[0].type == 'AgentTyping'){
+			messenger.send({``},sender);
+		}
 		/*else{
 			message(session, seq +1, sender);
 			globalSequence = seq + 1;
@@ -49,9 +53,9 @@ exports.start_chat = (sender, values) => {
 			console.log("Chasitor %j", chasitor);
 			console.log("Chasitor Session %j", session);
 			globalSession = session;
-			globalSequence = -2;
+			globalSequence = -1;
 			setInterval(function(){
-				globalSequence = globalSequence + 1;
+				//globalSequence = globalSequence + 1;
 				console.log('Global Sequence ' + globalSequence);
 				message(globalSession, globalSequence, sender);
 			}, 5000);
