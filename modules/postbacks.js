@@ -53,7 +53,7 @@ exports.start_chat = (sender, values) => {
 			console.log("Chasitor %j", chasitor);
 			console.log("Chasitor Session %j", session);
 			globalSession = session;
-			globalSequence = -1;
+			globalSequence = -2;
 			setInterval(function(){
 				globalSequence = globalSequence + 1;
 				console.log('Global Sequence ' + globalSequence);
