@@ -64,3 +64,44 @@ exports.getLiveAgentSession = () => {
 		});
 	});
 };
+
+exports.chasitorInit = (session) => {
+	return new Promise((resolve, reject) => {
+		request({
+			url : 'https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/Chasitor/ChasitorInit',
+			method : 'POST',
+			headers : {
+				"X-LIVEAGENT-API-VERSION" : 40,
+				"X-LIVEAGENT-AFFINITY" : session.get('affinityToken'),
+				"X-LIVEAGENT-SESSION-KEY" : session.get('key'),
+				"X-LIVEAGENT-SEQUENCE" : 0
+			},
+			json : {
+				"organizationId" : "00D1I00000040yk",
+				"deploymentId" : "5721I000000TSX6",
+				"buttonId" : "5731I000000TSTQ",
+				"sessionId" : session.get('id'),
+				"userAgent" : "",
+				"language" : "es-MX",
+				"screenResolution" : "2560x1440",
+				"visitorName" : "Gabriel",
+				"prechatDetails" : [],
+				"prechatEntities" : [],
+				"buttonOverrides" : [],
+				"receiveQueueUpdates" : true,
+				"isPost" : true
+			}
+		}, (error, response) => {
+			if(error){
+				console.log('Error initializing chat: ', error);
+			}
+			else if(response.body.error){
+				console.log('Error: ', response.body.error);
+			}
+			else{
+				console.log('Response: %j', response.body);
+				resolve(JSON.parse(response.body));
+			}
+		});
+	});
+};
