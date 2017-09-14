@@ -9,7 +9,7 @@ exports.start_chat = (sender, values) => {
 		console.log("Session %j", session);
 		var key = session.key;
 		console.log("key: " + key);
-		messenger.chasitorInit(session.key, session.token, session.id).then(chasitor => {
+		messenger.chasitorInit(session.key, session.affinityToken, session.id).then(chasitor => {
 			console.log("Chasitor %j", chasitor);
 		})
 	});
