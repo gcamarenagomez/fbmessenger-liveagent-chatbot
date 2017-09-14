@@ -23,9 +23,11 @@ let message = (session, seq, sender) => {
 		else if(msgs.messages[0].type == 'ChatMessage'){
 			messenger.send({text : `${msgs.messages[0].message.text}`}, sender);
 			message(session, seq + 1, sender);
+			globalSequence = seq + 1;
 		}
 		else{
 			message(session, seq +1, sender);
+			globalSequence = seq + 1;
 		}
 		
 	});

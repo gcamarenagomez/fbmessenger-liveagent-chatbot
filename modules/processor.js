@@ -24,15 +24,16 @@ rl.on('close', () => {
 }); 
 
 let match = text => {
+	if(globalSession){
+		console.log('Processor session %j', globalSession);
+		text = LiveAgentMessage;
+	}
 	for(var i = 0; i<utterances.length; i++){
 		var match = text.match(new RegExp(utterances[i].utterance, 'i'));
 		if(match){
 			var handler = utterances[i].handler;
 			return {handler, match};
-		}
-		else if(globalSession){
-			console.log('Processor session %j', globalSession);
-		}
+		} 
 		else{
 			console.log('No match');
 		}

@@ -49,3 +49,8 @@ exports.buscaCuentas = (sender) => {
 		});
 	}	
 };
+
+exports.liveAgentMessage = (sender, session, sequence){
+	console.log('LA session: %j', session);
+	console.log('LA sequence: ' + sequence);
+}
