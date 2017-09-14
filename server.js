@@ -3,6 +3,7 @@ var express = require('express'),
 	processor = require('./modules/processor'),
 	handlers = require('./modules/handlers'),
 	postbacks = require('./modules/postbacks'),
+	global = require('./global'),
 	FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN,
 	app = express();
 

@@ -30,8 +30,8 @@ let match = text => {
 			var handler = utterances[i].handler;
 			return {handler, match};
 		}
-		else if(session){
-			console.log('Processor session %j', session);
+		else if(globalSession){
+			console.log('Processor session %j', globalSession);
 		}
 		else{
 			console.log('No match');

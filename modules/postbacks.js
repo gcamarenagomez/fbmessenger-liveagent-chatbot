@@ -39,7 +39,7 @@ exports.start_chat = (sender, values) => {
 		messenger.chasitorInit(session.key, session.affinityToken, session.id).then(chasitor => {
 			console.log("Chasitor %j", chasitor);
 			console.log("Chasitor Session %j", session);
-			processor.session = session;
+			globalSession = session;
 			message(session, -1, sender);
 		});
 	});
