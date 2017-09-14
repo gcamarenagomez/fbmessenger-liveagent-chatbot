@@ -10,9 +10,13 @@ let message = (session, seq) => {
 		console.log('Postback Messages %j', msgs.messages);
 		console.log('Message type ' + msgs.messages[0].type);
 		if(msgs.messages[0].type == 'ChatRequestSuccess'){
-			messenger.messages(session, seq+1).then(msg2 =>{
+			message(session, seq + 1);
+			/*messenger.messages(session, seq+1).then(msg2 =>{
 				console.log('Postback Messages 2 %j', msg2.messages);
-			});
+			});*/
+		}
+		else if(msgs.messages[0].type == 'ChatEstablished'){
+			messenger.send({text : `Gracias a partir de este momento ${msgs.messages[0].message.name} te atenderá...`}, sender);
 		}
 		
 	});
