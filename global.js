@@ -1,3 +1,3 @@
 global.globalSession = {};
-global.globalSequence = '';
+global.globalSequence = 0;
 global.globalSender  = {};
