@@ -5,9 +5,14 @@ let salesforce = require('./salesforce'),
     formatter = require('./formatter');
 
 let message = (session) => {
+	var i = -1;
 	console.log("Message session: %j", session);
-	messenger.messages(session).then(msgs => {
+	messenger.messages(session, i).then(msgs => {
 		console.log('Postback Messages %j', msgs);
+		i = i+1;
+		messenger.messages(session, i).then(msg2 => {
+			console.log('Postback Messages 2 %j', msg2);
+		})
 	});
 };
 

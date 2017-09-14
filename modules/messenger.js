@@ -111,11 +111,12 @@ exports.chasitorInit = (key, token, id) => {
 	});
 };
 
-exports.messages = (session) => {
+exports.messages = (session, seq) => {
 	return new Promise((resolve, reject) => {
 		request({
 			url : "https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/System/Messages",
 			method : 'GET',
+			qs : {"ack" : seq},
 			headers : {
 				"X-LIVEAGENT-API-VERSION" : 40,
 				"X-LIVEAGENT-AFFINITY" : session.affinityToken,
