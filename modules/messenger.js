@@ -47,7 +47,8 @@ exports.getLiveAgentSession = () => {
 			url : 'https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/System/SessionId',
 			method : 'GET',
 			headers : {
-				"X-LIVEAGENT-API-VERSION" : 40
+				"X-LIVEAGENT-API-VERSION" : 40,
+				"X-LIVEAGENT-AFFINITY" : null
 			}
 		}, (error, response) => {
 			if(error){
