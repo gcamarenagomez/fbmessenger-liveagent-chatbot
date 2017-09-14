@@ -121,7 +121,7 @@ exports.messages = (session) => {
 				"X-LIVEAGENT-AFFINITY" : session.affinityToken,
 				"X-LIVEAGENT-SESSION-KEY" : session.key
 			}
-		}, (error, response){
+		}, (error, response) => {
 			if(error){
 				console.log('Error getting messages: ', error);
 			}
