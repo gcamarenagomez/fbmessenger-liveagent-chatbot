@@ -3,6 +3,7 @@
 let readline = require('readline'),
 	fs = require('fs'),
 	fileName = 'dictionary.txt',
+	session = {},
 	utterances = [];
 
 const rl = readline.createInterface({
@@ -29,6 +30,9 @@ let match = text => {
 			var handler = utterances[i].handler;
 			return {handler, match};
 		}
+		else if(session){
+			console.log('Processor session %j', session);
+		}
 		else{
 			console.log('No match');
 		}
@@ -36,3 +40,4 @@ let match = text => {
 };
 
 exports.match = match;
+exports.session = session;

@@ -2,7 +2,8 @@
 
 let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
-    formatter = require('./formatter');
+    formatter = require('./formatter'),
+    processor = require('./processor')
 
 let message = (session, seq, sender) => {
 	console.log("Message session: %j", session);
@@ -38,6 +39,7 @@ exports.start_chat = (sender, values) => {
 		messenger.chasitorInit(session.key, session.affinityToken, session.id).then(chasitor => {
 			console.log("Chasitor %j", chasitor);
 			console.log("Chasitor Session %j", session);
+			processor.session = session;
 			message(session, -1, sender);
 		});
 	});
