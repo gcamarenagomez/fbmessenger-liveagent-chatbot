@@ -50,7 +50,7 @@ exports.buscaCuentas = (sender) => {
 	}	
 };
 
-exports.liveAgentMessage = (sender, session, sequence) => {
-	console.log('LA session: %j', session);
-	console.log('LA sequence: ' + sequence);
+exports.liveAgentMessage = (sender, values) => {
+	console.log('LA session: %j', globalSession);
+	console.log('LA sequence: ' + globalSequence);
 }

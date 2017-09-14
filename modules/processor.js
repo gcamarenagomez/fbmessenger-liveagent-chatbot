@@ -24,7 +24,7 @@ rl.on('close', () => {
 }); 
 
 let match = text => {
-	if(globalSession){
+	if(globalSession && globalSession.id){
 		console.log('Processor session %j', globalSession);
 		text = LiveAgentMessage;
 	}
