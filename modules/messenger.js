@@ -1,7 +1,13 @@
 "use strict";
 
 let request = require('request'),
-	FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN;
+	FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN,
+	ORG_ID = process.env.ORG_ID,
+	LIVE_AGENT_DEPLOYMENT = process.env.LIVE_AGENT_DEPLOYMENT,
+	LIVE_AGENT_BUTTON = process.env.LIVE_AGENT_BUTTON,
+	LIVE_AGENT_LANGUAGE = process.env.LIVE_AGENT_LANGUAGE,
+	SCREEN_RES = process.env.SCREEN_RES,
+	VISITOR_NAME = process.env.VISITOR_NAME;
 
 exports.send = (message, recipient) => {
 	request({
@@ -80,14 +86,14 @@ exports.chasitorInit = (key, token, id) => {
 				"X-LIVEAGENT-SEQUENCE" : 1
 			},
 			json : {
-				"organizationId" : "00D1I00000040yk",
-				"deploymentId" : "5721I000000TSX6",
-				"buttonId" : "5731I000000TSTQ",
+				"organizationId" : ORG_ID,
+				"deploymentId" : LIVE_AGENT_DEPLOYMENT,
+				"buttonId" : LIVE_AGENT_BUTTON,
 				"sessionId" : id,
 				"userAgent" : "",
-				"language" : "es-MX",
-				"screenResolution" : "2560x1440",
-				"visitorName" : "Gabriel C.",
+				"language" : LIVE_AGENT_LANGUAGE,
+				"screenResolution" : SCREEN_RES,
+				"visitorName" : VISITOR_NAME,
 				"prechatDetails" : [
 					{
 						"label" : "LastName",
