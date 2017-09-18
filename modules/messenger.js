@@ -155,7 +155,7 @@ exports.chasitorInit = (key, token, id, acctId) => {
 					},
 					{
 						"label" : "Origin",
-						"value" : "Web",
+						"value" : "Chat",
 						"entityMaps" : [
 							{
 								"entityName" : "case",
