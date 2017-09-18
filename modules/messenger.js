@@ -71,10 +71,11 @@ exports.getLiveAgentSession = () => {
 	});
 };
 
-exports.chasitorInit = (key, token, id) => {
+exports.chasitorInit = (key, token, id, acctId) => {
 	console.log('Chasitor Key' + key);
 	console.log('Chasitor Token ' + token);
 	console.log('Chasitor Id' + id);
+	console.log('Financial Account Id: ' + acctId);
 	return new Promise((resolve, reject) => {
 		request({
 			url : 'https://d.la2-c1-iad.salesforceliveagent.com/chat/rest/Chasitor/ChasitorInit',
@@ -192,6 +193,20 @@ exports.chasitorInit = (key, token, id) => {
 							"description__c"
 						],
 						"displayToAgent" : true
+					},
+					{
+						"label" : "Financial Account",
+						"value" : acctId,
+						"entityMaps" : [
+							{
+								"entityName" : "case",
+								"fieldName" : "FinServ__FinancialAccount__c"
+							}
+						],
+						"transcriptFields" : [
+							"Financial_Account__c"
+						],
+						"displayToAgent" : true
 					}
 				],
 				"prechatEntities" : [
@@ -253,6 +268,13 @@ exports.chasitorInit = (key, token, id) => {
 							{
 								"fieldName" : "Description",
 								"label" : "Description",
+								"doFind" : false,
+								"isExactMatch" : false,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "FinServ__FinancialAccount__c",
+								"label" : "Financial Account",
 								"doFind" : false,
 								"isExactMatch" : false,
 								"doCreate" : true
