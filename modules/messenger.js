@@ -214,7 +214,7 @@ exports.chasitorInit = (key, token, id, acctId) => {
 						"entityMaps" : [
 							{
 								"entityName" : "finServ__financialaccount__c",
-								"fieldName" : "FinServ__FinancialAccount__c"
+								"fieldName" : "Id"
 							}
 						],
 						"transcriptFields" : [
@@ -250,6 +250,49 @@ exports.chasitorInit = (key, token, id, acctId) => {
 								"doFind" : true,
 								"isExactMatch" : true,
 								"doCreate" : true
+							}
+						]
+					},
+					{
+						"entityName" : "Contact",
+						"saveToTranscript" : "contact",
+						"linkToEntityName" : "Case",
+						"linkToEntityField" : "ContactId",
+						"entityFieldsMaps" : [
+							{
+								"fieldName" : "LastName",
+								"label" : "LastName",
+								"doFind" : true,
+								"isExactMatch" : true,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "FirstName",
+								"label" : "FirstName",
+								"doFind" : true,
+								"isExactMatch" : true,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "Email",
+								"label" : "Email",
+								"doFind" : true,
+								"isExactMatch" : true,
+								"doCreate" : true
+							}
+						]
+					},
+					{
+						"entityName" : "FinServ__FinancialAccount__c",
+						"showOnCreate" : true,
+						"saveToTranscript" : "FinServ__FinancialAccount__c",
+						"entityFieldsMaps" : [
+							{
+								"fieldName" : "Id",
+								"label" : "Id",
+								"doFind" : true,
+								"isExactMatch" : true,
+								"doCreate" : false
 							}
 						]
 					},
