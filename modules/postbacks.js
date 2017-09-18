@@ -42,10 +42,10 @@ let message = (session, seq, sender) => {
 exports.start_chat = (sender, values) => {
 	messenger.getLiveAgentSession().then(session => {
 		console.log("Session %j", session);
-		console.log("Values " + values);
+		console.log("Values " + values[1]);
 		var key = session.key;
 		console.log("key: " + key);
-		messenger.chasitorInit(session.key, session.affinityToken, session.id, values).then(chasitor => {
+		messenger.chasitorInit(session.key, session.affinityToken, session.id, values[1]).then(chasitor => {
 			console.log("Chasitor %j", chasitor);
 			console.log("Chasitor Session %j", session);
 			globalSession = session;
