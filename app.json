@@ -1,6 +1,9 @@
 {
-  "name": "BCI Salesforce Bot for Messenger",
-  "description": "BCI Salesforce Bot for Messenger",
+  "name": "Salesforce Bot for FB Messenger",
+  "description": "Salesforce Bot for FB Messenger",
+  "keywords" : "[Live, Agent, Bot, FB, Messenger]",
+  "repository" : "https://github.com/gcamarenagomez/fbmessenger-liveagent-chatbot",
+  "addons":[],
   "env": {
     "FB_PAGE_TOKEN": {
         "description": "Facebook Messenger Access Token",
