@@ -7,7 +7,8 @@ let request = require('request'),
 	LIVE_AGENT_BUTTON = process.env.LIVE_AGENT_BUTTON,
 	LIVE_AGENT_LANGUAGE = process.env.LIVE_AGENT_LANGUAGE,
 	SCREEN_RES = process.env.SCREEN_RES,
-	VISITOR_NAME = process.env.VISITOR_NAME;
+	VISITOR_NAME = process.env.VISITOR_NAME,
+	CASE_RECORD_TYPE = process.env.CASE_RECORD_TYPE;
 
 exports.send = (message, recipient) => {
 	request({
@@ -195,6 +196,20 @@ exports.chasitorInit = (key, token, id, acctId) => {
 						"displayToAgent" : true
 					},
 					{
+						"label" : "Record Type",
+						"value" : CASE_RECORD_TYPE,
+						"entityMaps" : [
+							{
+								"entityName" : "case",
+								"fieldName" : "RecordTypeId"
+							}
+						],
+						"transcriptFields" : [
+							""
+						],
+						"displayToAgent" : false
+					},
+					{
 						"label" : "Financial Account",
 						"value" : acctId,
 						"entityMaps" : [
@@ -220,7 +235,7 @@ exports.chasitorInit = (key, token, id, acctId) => {
 						"transcriptFields" : [
 							"Financial_Account__c"
 						],
-						"displayToAgent" : true
+						"displayToAgent" : false
 					}
 				],
 				"prechatEntities" : [
@@ -325,6 +340,13 @@ exports.chasitorInit = (key, token, id, acctId) => {
 							{
 								"fieldName" : "Description",
 								"label" : "Description",
+								"doFind" : false,
+								"isExactMatch" : false,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "RecordTypeId",
+								"label" : "Record Type",
 								"doFind" : false,
 								"isExactMatch" : false,
 								"doCreate" : true
