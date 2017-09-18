@@ -1,7 +1,7 @@
 {
-  "name": "Salesforce Bot for FB Messenger",
+  "name": "fbmessenger-liveagent-chatbot",
   "description": "Salesforce Bot for FB Messenger",
-  "keywords" : "[Live, Agent, Bot, FB, Messenger]",
+  "keywords" : ["Live", "Agent", "Bot", "FB Messneger"],
   "repository" : "https://github.com/gcamarenagomez/fbmessenger-liveagent-chatbot",
   "addons":[],
   "env": {
