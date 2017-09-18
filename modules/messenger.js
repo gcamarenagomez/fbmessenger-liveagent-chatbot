@@ -207,6 +207,20 @@ exports.chasitorInit = (key, token, id, acctId) => {
 							"Financial_Account__c"
 						],
 						"displayToAgent" : true
+					},
+					{
+						"label" : "Financial Account",
+						"value" : acctId,
+						"entityMaps" : [
+							{
+								"entityName" : "finServ__financialaccount__c",
+								"fieldName" : "FinServ__FinancialAccount__c"
+							}
+						],
+						"transcriptFields" : [
+							"Financial_Account__c"
+						],
+						"displayToAgent" : true
 					}
 				],
 				"prechatEntities" : [
