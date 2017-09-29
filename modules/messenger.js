@@ -155,7 +155,7 @@ exports.chasitorInit = (key, token, id, acctId) => {
 					},
 					{
 						"label" : "Origin",
-						"value" : "Chat",
+						"value" : "Facebook",
 						"entityMaps" : [
 							{
 								"entityName" : "case",
@@ -183,7 +183,7 @@ exports.chasitorInit = (key, token, id, acctId) => {
 					},
 					{
 						"label" : "Description",
-						"value" : "Transacción Rechazada",
+						"value" : "FB: Quiero comprar el iPhone 8 pero mi tarjeta nueva no pasa en la tienda #bancoduda #bancosfdc",
 						"entityMaps" : [
 							{
 								"entityName" : "case",
