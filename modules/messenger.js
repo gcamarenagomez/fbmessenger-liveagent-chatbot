@@ -169,7 +169,7 @@ exports.chasitorInit = (key, token, id, acctId) => {
 					},
 					{
 						"label" : "Subject",
-						"value" : "Transacción Rechazada",
+						"value" : "Bci - Transacción Rechazada",
 						"entityMaps" : [
 							{
 								"entityName" : "case",
@@ -210,6 +210,20 @@ exports.chasitorInit = (key, token, id, acctId) => {
 						"displayToAgent" : false
 					},
 					{
+						"label" : "Entitlement Name",
+						"value" : '5501I00000006sN',
+						"entityMaps" : [
+							{
+								"entityName" : "case",
+								"fieldName" : "entitlementName"
+							}
+						],
+						"transcriptFields" : [
+							""
+						],
+						"displayToAgent" : false
+					},
+					{
 						"label" : "Financial Account",
 						"value" : acctId,
 						"entityMaps" : [
@@ -237,6 +251,7 @@ exports.chasitorInit = (key, token, id, acctId) => {
 						],
 						"displayToAgent" : false
 					}
+					
 				],
 				"prechatEntities" : [
 					{
@@ -354,6 +369,13 @@ exports.chasitorInit = (key, token, id, acctId) => {
 							{
 								"fieldName" : "FinServ__FinancialAccount__c",
 								"label" : "Financial Account",
+								"doFind" : false,
+								"isExactMatch" : false,
+								"doCreate" : true
+							},
+							{
+								"fieldName" : "Entitlement",
+								"label" : "Entitlement Name",
 								"doFind" : false,
 								"isExactMatch" : false,
 								"doCreate" : true
