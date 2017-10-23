@@ -39,7 +39,7 @@ If you haven't already done so, follow the steps below to create a Salesforce co
     - For **ORG_ID**, enter your Salesforce Org ID (Starts with 00D)
     - For **SCREEN_RES**, your current screen resolution i.e. 2560x1440
 
-### Step 4: Create a Facebook App
+### Step 3: Create a Facebook App
 
 1. Follow [these instructions](https://developers.facebook.com/docs/messenger-platform/quickstart) to create a Facebook app. You'll have to create a Facebook page, a Facebook application, and configure Messenger for your application.
 
